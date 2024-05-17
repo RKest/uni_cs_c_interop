@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <textarea id="ta" cols="50" rows="10">
+return strdup("Hello, World!");
+    </textarea>
+    <button id="bt">
+        Compile!
+    </button>
+</div>
+
+<script>
+    const ta = document.getElementById("ta")
+    const bt = document.getElementById("bt")
+    bt.addEventListener("click", _ => {
+        fetch("/run", {
+            method: "POST", body: ta.value, 
+        }).catch(console.error);
+    })
+</script>
