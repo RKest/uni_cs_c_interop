@@ -43,7 +43,7 @@ app.MapGet("/run", async context =>
 {
     var lib = dlopen(Path.Join(tmp, $"foo{iter}.so"), RTLD_NOW);
     var sym = dlsym(lib, "foo");
-    var func = Marshal.GetDelegateForFunctionPointer<Foo.Bar>(sym);
+    var func = Marshal.GetDelegateForFunctionPointer<StringDelegate>(sym);
     await context.Response.WriteAsync(func());
 });
 
