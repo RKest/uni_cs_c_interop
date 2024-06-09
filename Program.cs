@@ -3,11 +3,9 @@ using System.Runtime.InteropServices;
 using WebApplication1;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 builder.Services.AddRazorPages();
-
 var app = builder.Build();
+
 var tmp = Path.GetTempPath();
 var src = Path.Join(tmp, "src.c");
 
